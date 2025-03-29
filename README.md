@@ -30,6 +30,7 @@ docker-compose up -d
 ```bash
 docker-compose logs -f init-db
 ```
+**Aclaración:** *Puede que la primera vez no se ejecute automáticamente el script que crea la base de datos. En ese caso, debes ejecutar manualmente el subcontenedor `init-db` *
 
 ## Configuración de Acceso Remoto
 
