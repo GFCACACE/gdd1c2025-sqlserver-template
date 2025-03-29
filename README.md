@@ -17,7 +17,7 @@ git clone [URL_DEL_REPOSITORIO]
 cd [NOMBRE_DEL_DIRECTORIO]
 ```
 
-2. Descarga el archivo RAR del repositorio de la cátedra desde [este enlace](https://drive.google.com/file/d/14lcyAovJpGAwrDi96xL6Z1pL7utb3iix/view?usp=drive_link) y mueve los archivos .sql a la carpeta `scripts/`.
+2. Descomprime el archivo que contiene el insert de los registros que cuenta con la siguiente ruta: `./scripts/gd_esquema.Maestra.Table.zip`.
 
 3. Asegúrate de que Docker Desktop esté en ejecución
 
