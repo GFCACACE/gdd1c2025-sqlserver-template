@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Express
+      - MSSQL_DATABASE=GD2C2024
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./scripts:/scripts
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  init-db:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    volumes:
+      - ./scripts:/scripts
+    command: >
+      bash -c '
+        echo "Creating database and schema..." &&
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -i /scripts/gd_esquema.Schema.sql &&
+        echo "Waiting for database to be ready..." &&
+        sleep 10 &&
+        echo "Creating Maestra table..." &&
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD2C2024 -i /scripts/gd_esquema.Maestra.sql &&
+        echo "Creating Maestra.Table..." &&
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD2C2024 -i /scripts/gd_esquema.Maestra.Table.sql &&
+        echo "Database initialization completed"
+      ' 
