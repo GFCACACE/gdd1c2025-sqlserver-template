@@ -13,8 +13,8 @@ Este repositorio contiene la configuración necesaria para desplegar un servidor
 
 1. Clona este repositorio:
 ```bash
-git clone [URL_DEL_REPOSITORIO]
-cd [NOMBRE_DEL_DIRECTORIO]
+git clone https://github.com/GFCACACE/gdd1c2025-sqlserver-template.git
+cd gdd1c2025-sqlserver-template
 ```
 
 2. Descomprime el archivo que contiene el insert de los registros que cuenta con la siguiente ruta: `./scripts/gd_esquema.Maestra.Table.zip`.
