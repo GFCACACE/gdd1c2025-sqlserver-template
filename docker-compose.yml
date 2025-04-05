@@ -7,6 +7,8 @@ services:
       - SA_PASSWORD=YourStrong@Passw0rd
       - MSSQL_PID=Express
       - MSSQL_DATABASE=GD2C2024
+      - MSSQL_TCP_PORT=1433
+      - MSSQL_IP_ADDRESS=0.0.0.0
     ports:
       - "1433:1433"
     volumes:
@@ -36,4 +38,6 @@ services:
         echo "Creating Maestra.Table..." &&
         /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD2C2024 -i /scripts/gd_esquema.Maestra.Table.sql &&
         echo "Database initialization completed"
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD2C2024 -i /scripts/gd_practica.sql &&
+        echo "Database práctica created"
       ' 
