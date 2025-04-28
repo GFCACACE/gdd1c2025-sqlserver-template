@@ -34,10 +34,10 @@ services:
         echo "Waiting for database to be ready..." &&
         sleep 10 &&
         echo "Creating Maestra table..." &&
-        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD2C2024 -i /scripts/gd_esquema.Maestra.sql &&
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD1C2025 -i /scripts/gd_esquema.Maestra.sql &&
         echo "Creating Maestra.Table..." &&
-        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD2C2024 -i /scripts/gd_esquema.Maestra.Table.sql &&
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD1C2025 -i /scripts/gd_esquema.Maestra.Table.sql &&
         echo "Database initialization completed"
-        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD2C2024 -i /scripts/gd_practica.sql &&
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P YourStrong@Passw0rd -d GD1C2025 -i /scripts/gd_practica.sql &&
         echo "Database práctica created"
       ' 
