@@ -48,7 +48,7 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=YourStrong@Passw0rd
       - MSSQL_PID=Express
-      - MSSQL_DATABASE=GD2C2024
+      - MSSQL_DATABASE=GD1C2025
       - MSSQL_TCP_PORT=1433
       - MSSQL_IP_ADDRESS=0.0.0.0
 ```
