@@ -56,7 +56,7 @@ services:
 2. Reinicia los contenedores:
 ```bash
 docker-compose down
-docker-compose up -d
+docker-compose up
 ```
 
 3. Para conectarte desde una IP remota, usa la siguiente cadena de conexión:
